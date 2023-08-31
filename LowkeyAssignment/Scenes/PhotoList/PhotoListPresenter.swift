@@ -3,7 +3,7 @@ import Foundation
 @MainActor
 protocol PhotoListPresenter: AnyObject {
     func didLoad() async throws
-    func didTapOnCell(id: Int) throws
+    func didTapOnCell(id: Int)
     func didPullToRefresh() async throws
     func didScrollToNextPage() async throws
 }
@@ -34,7 +34,7 @@ class PhotoListPresenterImpl: PhotoListPresenter {
         view?.displayPhotos(photos: photos)
     }
     
-    func didTapOnCell(id: Int) throws {
+    func didTapOnCell(id: Int) {
         guard let photo = currentPhotos.first(where: { $0.id == id }) else { return }
         router.routeToPhoto(photo: photo)
     }

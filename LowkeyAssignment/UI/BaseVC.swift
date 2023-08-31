@@ -18,6 +18,7 @@ extension BaseVC {
                 try await task()
                 if showsLoader { hideLoading() }
             } catch {
+                if showsLoader { hideLoading() }
                 showError(error: error)
             }
         }

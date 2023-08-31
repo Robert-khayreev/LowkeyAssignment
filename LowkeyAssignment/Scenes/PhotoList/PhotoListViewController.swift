@@ -29,6 +29,7 @@ class PhotoListViewControllerImpl: UIViewController, BaseVC, PhotoListView {
     
     private var cellData: [DisplayedPhotoListItem] = []
     private var isLoading = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -143,7 +144,7 @@ extension PhotoListViewControllerImpl: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        try? presenter?.didTapOnCell(id: cellData[indexPath.item].id)
+        presenter?.didTapOnCell(id: cellData[indexPath.item].id)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
